@@ -1,29 +1,29 @@
 # EnumType
 
-TODO: Write a gem description
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-    gem 'enum_type'
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install enum_type
+`EnumType` provides support for defining Enumerated Types in Ruby.  An Enumerated Type is a class with a finite (and usually small) set of predefined, named values.
 
 ## Usage
 
-TODO: Write usage instructions here
+Define a enumerated type by subclassing EnumType.  Use `.define` to define allowed values.
+
+    class Colour < EnumType
+
+      define :red do
+        # ...
+      end
+
+      define :green do
+        # ...
+      end
+
+      define :blue do
+        # ...
+      end
+
+    end
+
+Specific values are
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+It's on GitHub. You know what to do.

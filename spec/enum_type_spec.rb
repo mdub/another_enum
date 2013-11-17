@@ -3,8 +3,7 @@ require 'enum_type'
 describe EnumType, :fast do
 
   let(:direction_class) do
-    Class.new do
-      extend EnumType
+    Class.new(EnumType) do
       define :north
       define :south
       define :east
