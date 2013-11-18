@@ -4,25 +4,70 @@
 
 ## Usage
 
-Define a enumerated type by subclassing EnumType.  Use `.define` to define allowed values.
+Define a enumerated type by subclassing EnumType.  Use `.define` to define allowed values:
 
     class Colour < EnumType
+      define :red
+      define :green
+      define :blue
+    end
 
-      define :red do
-        # ...
+which become globally available:
+
+    Colour.red
+    Colour.green
+    Colour.blue
+
+Each value gets a code:
+
+    Colour.red.code     #=> "red"
+
+which can be used later to lookup the value:
+
+    Colour["red"]       #=> Colour.red
+
+It's easy to get all the defined values, or all the codes:
+
+    Colour.all          #=> [Colour.red, Colour.green, Colour.blue]
+    Colour.codes        #=> ["red", "green", "blue"]
+
+`EnumType.define` takes a block, which can be used to define methods on the singleton values, e.g.
+
+    class CreditCardType < EnumType
+
+      define :visa do
+
+        def surcharge
+          0.08
+        end
+
       end
 
-      define :green do
-        # ...
-      end
+      define :amex do
 
-      define :blue do
-        # ...
+        def surcharge
+          0.16
+        end
+
       end
 
     end
 
-Specific values are
+There's even a shortcut for defining methods that return predefined values:
+
+    class CreditCardType < EnumType
+
+      define :visa do
+        hardcode name: "Visa"
+        hardcode surcharge: 0.08
+      end
+
+      define :amex do
+        hardcode name: "American Express"
+        hardcode surcharge: 0.16
+      end
+
+    end
 
 ## Contributing
 
