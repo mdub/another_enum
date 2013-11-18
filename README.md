@@ -1,12 +1,12 @@
-# EnumType
+# EnumeratedType
 
-`EnumType` provides support for defining Enumerated Types in Ruby.  An Enumerated Type is a class with a finite (and usually small) set of predefined, named values.
+`EnumeratedType` provides support for defining Enumerated Types in Ruby.  An Enumerated Type is a class with a finite (and usually small) set of predefined, named values.
 
 ## Usage
 
-Define a enumerated type by subclassing EnumType.  Use `.define` to define allowed values:
+Define a enumerated type by subclassing EnumeratedType.  Use `.define` to define allowed values:
 
-    class Colour < EnumType
+    class Colour < EnumeratedType
       define :red
       define :green
       define :blue
@@ -31,9 +31,9 @@ It's easy to get all the defined values, or all the codes:
     Colour.all          #=> [Colour.red, Colour.green, Colour.blue]
     Colour.codes        #=> ["red", "green", "blue"]
 
-`EnumType.define` takes a block, which can be used to define methods on the singleton values, e.g.
+`EnumeratedType.define` takes a block, which can be used to define methods on the singleton values, e.g.
 
-    class CreditCardType < EnumType
+    class CreditCardType < EnumeratedType
 
       define :visa do
 
@@ -55,7 +55,7 @@ It's easy to get all the defined values, or all the codes:
 
 There's even a shortcut for defining methods that return predefined values:
 
-    class CreditCardType < EnumType
+    class CreditCardType < EnumeratedType
 
       define :visa do
         hardcode name: "Visa"
