@@ -1,9 +1,9 @@
-require 'enumerated_type'
+require 'another_enum'
 
-describe EnumeratedType, :fast do
+describe AnotherEnum, :fast do
 
   let(:direction_class) do
-    Class.new(EnumeratedType) do
+    Class.new(AnotherEnum) do
       define :north
       define :south
       define :east

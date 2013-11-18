@@ -2,7 +2,7 @@
 #
 # Example
 #
-#   class Colour < EnumeratedType
+#   class Colour < AnotherEnum
 #
 #     define :red do
 #       # ...
@@ -18,7 +18,7 @@
 #
 #   end
 #
-class EnumeratedType
+class AnotherEnum
 
   class << self
 
@@ -31,7 +31,7 @@ class EnumeratedType
     #
     # Example
     #
-    #   class Colour < EnumeratedType; end
+    #   class Colour < AnotherEnum; end
     #
     #   Colour.define :red do
     #

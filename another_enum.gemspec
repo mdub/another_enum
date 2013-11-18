@@ -1,12 +1,12 @@
 # coding: utf-8
 
 Gem::Specification.new do |spec|
-  spec.name          = "enumerated_type"
+  spec.name          = "another_enum"
   spec.version       = "1.0.0"
   spec.authors       = ["Mike Williams"]
   spec.email         = ["mdub@dogbiscuit.org"]
   spec.summary       = %q{Support for defining enumerated types}
-  spec.homepage      = "https://github.com/mdub/enumerated_type"
+  spec.homepage      = "https://github.com/mdub/another_enum"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
