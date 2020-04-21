@@ -1,6 +1,6 @@
 require 'another_enum'
 
-describe AnotherEnum, :fast do
+RSpec.describe AnotherEnum, :fast do
 
   let(:direction_class) do
     Class.new(AnotherEnum) do
@@ -14,7 +14,7 @@ describe AnotherEnum, :fast do
   describe ".define" do
 
     it "defines a new value" do
-      direction_class.north.should be_kind_of(direction_class)
+      expect(direction_class.north).to be_kind_of(direction_class)
     end
 
     context "with a block" do
@@ -28,11 +28,11 @@ describe AnotherEnum, :fast do
       end
 
       it "extends the behaviour of the specified enum value" do
-        direction_class.up.saying.should eq("Up up and away!")
+        expect(direction_class.up.saying).to eq("Up up and away!")
       end
 
       it "does not affect other classes" do
-        direction_class.north.should_not respond_to(:saying)
+        expect(direction_class.north).to_not respond_to(:saying)
       end
 
     end
@@ -42,7 +42,7 @@ describe AnotherEnum, :fast do
   describe ".all" do
 
     it "returns all the defined values" do
-      direction_class.all.should eq([
+      expect(direction_class.all).to eq([
         direction_class.north,
         direction_class.south,
         direction_class.east,
@@ -55,7 +55,7 @@ describe AnotherEnum, :fast do
   describe ".codes" do
 
     it "returns all the codes" do
-      direction_class.codes.should eq(%w(north south east west))
+      expect(direction_class.codes).to eq(%w(north south east west))
     end
 
   end
@@ -63,7 +63,7 @@ describe AnotherEnum, :fast do
   describe "#code" do
 
     it "returns the value's unique code" do
-      direction_class.north.code.should eq('north')
+      expect(direction_class.north.code).to eq('north')
     end
 
   end
